@@ -29,6 +29,7 @@ fs.copySync('/etc/autofs/os-release','/mnt/etc/autofs/auto.misc');
 fs.copySync('/etc/skel','/mnt/etc/skel');
 fs.copySync('/etc/sudoers','/mnt/etc/sudoers');
 fs.copySync('/etc/X11/xinit/xinitrc','/mnt/etc/X11/xinit/xinitrc');
+fs.copySync('/etc/systemd/system/getty@tty1.service.d/autologin.conf','/mnt/etc/systemd/system/getty@tty1.service.d/autologin.conf');
 
 child_process.execSync('arch-chroot',['/mnt'],{
   input: Buffer.from('mkinitcpio -p linux\n'+(cfg.disk.efi ? 'mount /dev/'+cfg.disk.disk.name+'1 /boot/EFI\n' : '')+'grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck\ngrub-mkconfig -o /boot/grub/grub.cfg\ncurl -o- https://github.com/SpaceboyRoss01/osjs-linux/raw/master/configs/osjs/airootfs/root/customize_airootfs.sh | bash\n')
