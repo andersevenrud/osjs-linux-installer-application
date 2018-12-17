@@ -8,7 +8,7 @@ child_process.execSync('fdisk /dev/'+cfg.disk.disk.name,{
   input: Buffer.from((cfg.disk.efi ? 'g' : 'o')+'\n'+(cfg.disk.efi ? 'n\np\n1\n2048\n+300M\nt\n1\na\n' : '')+'n\np\n1\n\n\nw\n')
 });
 
-if(cfg.disk.efi) child_process.execSync('mkfs.fat','-F32 /dev/'+cfg.disk.disk.name+(cfg.disk.efi ? 2 : 1));
+if(cfg.disk.efi) child_process.execSync('mkfs.fat -F32 /dev/'+cfg.disk.disk.name+(cfg.disk.efi ? 2 : 1));
 child_process.execSync('mkfs.ext4 /dev/'+cfg.disk.disk.name+(cfg.disk.efi ? 2 : 1));
 
 child_process.execSync('mount /dev/'+cfg.disk.disk.name+(cfg.disk.efi ? 2 : 1)+' /mnt');
