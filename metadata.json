@@ -1,0 +1,16 @@
+{
+  "type": "application",
+  "name": "OSjsInstaller",
+  "category": "system",
+  "server": "server.js",
+  "title": {
+    "en_EN": "OS.js Linux Installer"
+  },
+  "description": {
+    "en_EN": "OS.js Linux Installer"
+  },
+  "files": [
+    "main.js",
+    "main.css"
+  ]
+}
