@@ -31,9 +31,9 @@ setup() {
   cat << EOF | arch-chroot /mnt/
     mkinitcpio -p linux
     if [ "`node -p 'Boolean(require("./install-data.json").disk.efi)'`" = "true" ]; then \
-      grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck ${DISK}
+      grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck ${DISK} \
     else \
-      grub-install --target=i386-pc --bootloader-id=grub_uefi --recheck ${DISK}
+      grub-install --target=i386-pc --bootloader-id=grub_uefi --recheck ${DISK} \
     fi; \
     grub-mkconfig -o /boot/grub/grub.cfg
     curl -o- https://raw.githubusercontent.com/SpaceboyRoss01/osjs-linux/master/configs/osjs/airootfs/root/customize_airootfs.sh | bash
