@@ -8,7 +8,7 @@ setup() {
   echo "[Installer] pacstrapped rootfs of installation"
   genfstab -U /mnt >> /mnt/etc/fstab
   echo `node -p 'require("./install-data.json").personalization.hostname)'` >> /mnt/etc/hostname
-  cat >/mnt/etc/hosts <<EOL
+  cat << EOF > /mnt/etc/hosts
   127.0.0.1 localhost
   ::1 localhost
   127.0.1.1 ${NEW_HOSTNAME}.localdomain ${NEW_HOSTNAME}
