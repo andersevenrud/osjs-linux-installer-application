@@ -12,7 +12,7 @@ setup() {
   127.0.0.1 localhost
   ::1 localhost
   127.0.1.1 ${NEW_HOSTNAME}.localdomain ${NEW_HOSTNAME}
-  EOL
+  EOF
   cp /usr/lib/os-release /mnt/usr/lib/os-release
   cp /etc/autofs/auto.misc /mnt/etc/autofs/auto.misc
   cp /etc/sudoers /mnt/etc/sudoers
