@@ -16,7 +16,7 @@ module.exports = (core,proc) => ({
         };
         
         fs.writeFileSync(__dirname+'/install-data.json',JSON.stringify({lang,disk,personalization,users}));
-        let sudo = executeCommand('sudo',['/usr/bin/node',__dirname+'/install.js',__dirname]);
+        let sudo = executeCommand(__dirname+'/install.sh',[__dirname]);
         sudo.stdin.write('osjs\n');
         sudo.on('close',() => ws.close());
       });
