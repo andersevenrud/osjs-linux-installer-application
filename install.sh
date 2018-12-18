@@ -39,6 +39,8 @@ setup() {
     curl -o- https://raw.githubusercontent.com/SpaceboyRoss01/osjs-linux/master/configs/osjs/airootfs/root/customize_airootfs.sh | bash
     su osjs -c "cd /opt/os.js && npm remove osjs-linux-installer-application && npm run package:discover"
   EOF
+  umount /mnt
+  echo "[Installer] finished installing"
 }
 
 if [ "`node -p 'Boolean(require("./install-data.json").disk.efi)'`" = "true" ]; then
